@@ -12,11 +12,21 @@ const userSchema = new mongoose.Schema({
     unique: true,
     trim: true,
   },
-  age: {
-    type: Number,
+  password: {
+    type: String,
     required: true,
     trim: true,
   },
+  age: {
+    type: Number,
+    trim: true,
+  },
+  role: {
+    type: String,
+    required: true,
+    trim: true,
+    enum: ["owner", "admin", "user"]
+  }
 })
 
 export default mongoose.model("user", userSchema)
